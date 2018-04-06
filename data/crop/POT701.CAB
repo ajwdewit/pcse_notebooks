@@ -1,0 +1,140 @@
+** $Id: pot701.cab 1.3 1997/09/25 14:07:00 LEM release $
+** File POT701.CAB
+** CROP DATA FILE for use with WOFOST Version 5.4, June 1992
+**
+** POTATO 701
+** Regions : Germany, France (R21,22,23,24,25) The Netherlands, Belgium,
+** Luxembourg, United Kingdom, Ireland, Denmark.
+** Sowing date 15 April except United Kingdom with sowing date 25 April.
+
+** Derived from SUCROS87 data set for potato.  
+** Calibrated for use in WOFOST model at the Centre for Agrobiological 
+** Research (CABO-DLO) for the simulation of crop growth and yield on the 
+** basis of daily weather data.
+** Purpose of application: Crop growth monitoring with agrometeorological 
+** model in the EC.
+** Developed in the framework of JRC Agriculture Project Action 3. 
+
+CRPNAM='Potato 701, N-EC'
+
+** emergence
+TBASEM   =   3.0    ! lower threshold temp. for emergence [cel]
+TEFFMX   =  18.0    ! max. eff. temp. for emergence [cel]
+TSUMEM   = 170.     ! temperature sum from sowing to emergence [cel d]
+
+** phenology
+IDSL     =   0      ! indicates whether pre-tuber growth development depends
+                    ! on temp. (=0), daylength (=1) , or both (=2)
+DLO      = -99.0    ! optimum daylength for development [hr]
+DLC      = -99.0    ! critical daylength (lower threshold) [hr]
+TSUM1    = 150.     ! temp. sum from emergence to init. tuber growth [cel d]
+TSUM2    =1550.     ! temp. sum from init. tuber growth to maturity [cel d]
+DTSMTB   =   0.00,    0.00,     ! daily increase in temp. sum 
+             2.00,    0.00,     ! as function of av. temp. [cel; cel d]
+            13.00,   11.00,
+            30.00,   28.00
+DVSI = 0.           ! initial DVS
+DVSEND   =   2.00   ! development stage at harvest (= 2.0 at maturity [-])
+
+** initial
+TDWI     =  75.00   ! initial total crop dry weight [kg ha-1]
+LAIEM    =   0.0589 ! leaf area index at emergence [ha ha-1]
+RGRLAI   =   0.0120 ! maximum relative increase in LAI [ha ha-1 d-1]
+
+** green area
+SLATB    =   0.00,    0.0030,   ! specific leaf area  
+             1.10,    0.0030,   ! as a function of DVS [-; ha kg-1]
+             2.00,    0.0015
+SPA      =   0.000  ! specific pod area [ha kg-1]
+SSATB =  0.0, 0.0,  ! specific stem area [ha kg-1]
+         2.0, 0.0   ! as function of DVS
+SPAN     =  37.     ! life span of leaves growing at 35 Celsius [d]
+TBASE    =   2.0    ! lower threshold temp. for ageing of leaves [cel]
+
+** assimilation
+KDIFTB = 0.0, 1.00, ! extinction coefficient for diffuse visible light [-] 
+         2.0, 1.00  ! as function of DVS
+EFFTB  = 0.0, 0.45, ! light-use effic. single leaf [kg ha-1 hr-1 j-1 m2 s]
+        40.0, 0.45  ! as function of daily mean temp.
+AMAXTB   =   0.00,   30.00,     ! max. leaf CO2 assim. rate
+             1.57,   30.00,     ! function of DVS [-; kg ha-1 hr-1]
+             2.00,    0.00
+TMPFTB   =   0.00,    0.01,     ! reduction factor of AMAX
+             3.00,    0.01,     ! as function of av. temp. [cel; -]
+            10.00,    0.75,
+            15.00,    1.00,
+            20.00,    1.00,
+            26.00,    0.75,
+            33.00,    0.01
+TMNFTB   =   0.00,    0.00,     ! red. factor of gross assim. rate
+             3.00,    1.00      ! as function of low min. temp. [cel; -]
+
+** conversion of assimilates into biomass
+CVL      =   0.720  ! efficiency of conversion into leaves [kg kg-1]
+CVO      =   0.850  ! efficiency of conversion into storage org. [kg kg-1]
+CVR      =   0.720  ! efficiency of conversion into roots [kg kg-1]
+CVS      =   0.690  ! efficiency of conversion into stems [kg kg-1]
+
+** maintenance respiration
+Q10      =   2.0    ! rel. incr. in resp. rate per 10 Cel temp. incr. [-]
+RML      =   0.0300 ! rel. maint. resp. rate leaves [kg CH2O kg-1 d-1]
+RMO      =   0.0045 ! rel. maint. resp. rate stor.org. [kg CH2O kg-1 d-1]
+RMR      =   0.0100 ! rel. maint. resp. rate roots [kg CH2O kg-1 d-1]
+RMS      =   0.0150 ! rel. maint. resp. rate stems [kg CH2O kg-1 d-1]
+RFSETB   =   0.00,    1.00,     ! red. factor for senescence
+             2.00,    1.00      ! as function of DVS [-; -]
+
+** partitioning
+FRTB     =   0.00,    0.20,     ! fraction of total dry matter to roots
+             1.00,    0.20,     ! as a function of DVS [-; kg kg-1]
+             1.36,    0.00,
+             2.00,    0.00
+FLTB     =   0.00,    0.80,     ! fraction of above-gr. DM to leaves
+             1.00,    0.80,     ! as a function of DVS [-; kg kg-1]
+             1.27,    0.00,
+             1.36,    0.00,
+             2.00,    0.00
+FSTB     =   0.00,    0.20,     ! fraction of above-gr. DM to stems
+             1.00,    0.20,     ! as a function of DVS [-; kg kg-1]
+             1.27,    0.25,
+             1.36,    0.00,
+             2.00,    0.00
+FOTB     =   0.00,    0.00,     ! fraction of above-gr. DM to stor. org.
+             1.00,    0.00,     ! as a function of DVS [-; kg kg-1]
+             1.27,    0.75,
+             1.36,    1.00,
+             2.00,    1.00
+
+** death rates
+PERDL    =   0.030  ! max. rel. death rate of leaves due to water stress
+RDRRTB   =   0.00,    0.000,    ! rel. death rate of stems 
+             1.50,    0.000,    ! as a function of DVS [-; kg kg-1 d-1]
+             1.5001,  0.020,
+             2.00,    0.020
+RDRSTB   =   0.00,    0.000,    ! rel. death rate of roots
+             1.50,    0.000,    ! as a function of DVS [-; kg kg-1 d-1]
+             1.5001,  0.020,
+             2.00,    0.020
+
+** water use
+CFET     =   1.00   ! correction factor transpiration rate [-]
+DEPNR    =   3.0    ! crop group number for soil water depletion [-]
+IAIRDU   =   0      ! air ducts in roots present (=1) or not (=0)
+IOX = 0             ! No oxygen stress
+
+** rooting
+RDI      =  10.     ! initial rooting depth [cm]
+RRI      =   1.2    ! maximum daily increase in rooting depth [cm d-1]
+RDMCR    =  50.     ! maximum rooting depth [cm]
+
+** nutrients
+** maximum and minimum concentrations of N, P, and K
+** in storage organs        in vegetative organs [kg kg-1]
+NMINSO   =   0.0085 ;       NMINVE   =   0.0150
+NMAXSO   =   0.0220 ;       NMAXVE   =   0.0400
+PMINSO   =   0.0011 ;       PMINVE   =   0.0014
+PMAXSO   =   0.0055 ;       PMAXVE   =   0.0100
+KMINSO   =   0.0110 ;       KMINVE   =   0.0130
+KMAXSO   =   0.0280 ;       KMAXVE   =   0.0380
+YZERO    =   0.     ! max. amount veg. organs at zero yield [kg ha-1]
+NFIX     =   0.00   ! fraction of N-uptake from biol. fixation [kg kg-1]

@@ -1,0 +1,13 @@
+Version: 1.0
+AgroManagement:
+- 2005-01-01:
+    CropCalendar:
+        crop_name: 'sugar-beet'
+        variety_name: 'sugar-beet-601'
+        crop_start_date: 2005-04-05
+        crop_start_type: emergence
+        crop_end_date: 2005-10-20
+        crop_end_type: harvest
+        max_duration: 300
+    TimedEvents: null
+    StateEvents: null
