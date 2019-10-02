@@ -8,7 +8,7 @@ import pcse
 from pcse import settings
 from pcse.db.pcse import fetch_cropdata, fetch_sitedata, fetch_soildata, GridWeatherDataProvider, \
 AgroManagementDataProvider
-from pcse.base_classes import ParameterProvider
+from pcse.base import ParameterProvider
 
 db_location = os.path.join(settings.PCSE_USER_HOME,"pcse.db")
 db_location = os.path.normpath(db_location)
