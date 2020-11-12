@@ -1,3 +1,6 @@
+.. image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/ajwdewit/pcse_notebooks/HEAD
+
 A collection of PCSE notebooks
 ==============================
 
