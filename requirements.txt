@@ -1,0 +1,11 @@
+SQLAlchemy>=0.8.0
+numpy>=1.6.0
+PyYAML>=3.11
+xlrd>=0.9.3
+xlwt>=1.0.0
+requests>=2.0.0
+pandas>=0.20
+traitlets-pcse==5.0.0.dev
+matplotlib>=3.2
+nlopt>=2.7
+salib>=1.3
