@@ -103,3 +103,8 @@ ENV/
 # Output files
 data/output/*.xlsx
 data/output/*.xls
+
+# config files for PCSE models
+conf/
+
+*.cache
