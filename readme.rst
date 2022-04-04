@@ -12,7 +12,8 @@ The notebooks include introductory examples:
 - **02 Running with custom input data.ipynb** shows how you can run a model using your own input data instead of the demonstration data.
 - **03 running_LINTUL3.ipynb** a similar example, but instead using the LINTUL3 model instead of WOFOST.
 - **04 Running PCSE in batch mode.ipynb** demonstrates how to run PCSE simulation in batch for a series of crops and year
-  
+- **13 Simulating grassland productivity with LINGRA** demonstrates the LINGRA model for simulating productivity of grasslands
+
 Some more advanced features of PCSE are demonstrated in:
  
 - **05 Using PCSE WOFOST with a CGMS8 database.ipynb** this shows how to retrieve data from a CGMS database and run crop model simulations with WOFOST using that data.
@@ -21,8 +22,10 @@ Some more advanced features of PCSE are demonstrated in:
  
 Finally, highly advanced subjects are treated that require quite some background knowledge and python programming skills:
 
-- **08_data_assimilation_with_the_EnKF.ipynb** provides an introduction to data assimilation with the ensemble Kalman filter.
+- **08a_data_assimilation_with_the_EnKF.ipynb** provides an introduction to data assimilation with the ensemble Kalman filter.
+- **08b_data_assimilation_with_the_EnKF_Multitate.ipynb** demonstrates how to effectively load multiple states into the EnKF state vector.
 - **09 Optimizing parameters in a PCSE model.ipynb** demonstrates how to do parameter optimizations in PCSE.
+- **10 Sensitivity analysis of WOFOST** demonstrates how to use SAlib for sensitivity analysis
 
 Dependencies
 ------------
@@ -30,4 +33,6 @@ Dependencies
 Using these notebooks generally require a python environment that includes the following packages:
 
 - PCSE and its dependencies
-- pandas, matplotlib and for notebook 09 the NLOPT optimization library.
+- pandas, matplotlib
+- for notebook 09 the NLOPT optimization library.
+- for notebook 10 the SAlib library.
