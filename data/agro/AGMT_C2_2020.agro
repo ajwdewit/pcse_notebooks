@@ -1,0 +1,13 @@
+Version: 1.0
+AgroManagement:
+- 2020-04-20:
+    CropCalendar:
+        crop_name: 'potato'
+        variety_name: 'Potato_C2_C5'
+        crop_start_date: 2020-04-20
+        crop_start_type: 'sowing' 
+        crop_end_date: 2020-11-03
+        crop_end_type: 'maturity' 
+        max_duration: 300
+    TimedEvents: 
+    StateEvents: 
