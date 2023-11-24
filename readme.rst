@@ -33,6 +33,6 @@ Dependencies
 Using these notebooks generally require a python environment that includes the following packages:
 
 - PCSE and its dependencies
-- pandas, matplotlib
-- for notebook 09 the NLOPT optimization library.
-- for notebook 10 the SAlib library.
+- matplotlib
+- The NLOPT optimization library (notebooks 09, 11)
+- The SAlib library (notebook 10)
