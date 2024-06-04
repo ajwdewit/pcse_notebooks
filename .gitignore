@@ -108,3 +108,7 @@ data/output/*.xls
 conf/
 
 *.cache
+*.pkl
+wofost_run.py
+wur-logo.png
+_*
