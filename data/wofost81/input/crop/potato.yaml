@@ -1,0 +1,2254 @@
+Version: 1.0.0
+Metadata:
+  Creator: Allard de Wit
+  Contact: allard.dewit@wur.nl
+  Publisher: Wageningen Environmental Research, Wageningen Plant Production Systems
+  Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+  Date: &id074 2022-02-13
+  Language: EN
+  Format: YAML
+  Subject: WOFOST parameters for potato
+  Description: This file provides parameters for several potato varieties based to
+    two ecotypes. The ecotype 'potato' is based on the original calibrations for potato
+    mainly using cultivar 'Bintje'. The second ecotype 'potato_nl' is based on new
+    experimental trials over the period 2019-2021 with several modern cultivars carried
+    out at two locations in the Netherlands.
+  Identifier: null
+  Relation: null
+  Coverage:
+    Region: Europe, Netherlands
+  Rights: European Union Public License (EUPL)
+  Keyword: potato; Solanum tuberosum
+CropParameters:
+  GenericC3:
+    CO2EFFTB: &id001
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 1.11
+      - 1000.0
+      - 1.11
+      - 2000.0
+      - 1.11
+    - multiplication factor for EFF to account for an increasing CO2 concentration
+    - - PPM
+      - '-'
+    CO2TRATB: &id002
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 0.9
+      - 1000.0
+      - 0.9
+      - 2000.0
+      - 0.9
+    - multiplication factor for maximum transpiration rate TRAMX to account for an
+      increasing CO2 concentration
+    - - PPM
+      - '-'
+    CO2AMAXTB: &id003
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 1.6
+      - 1000.0
+      - 1.9
+      - 2000.0
+      - 1.9
+    - multiplication factor for AMAX to account for an increasing CO2 concentration
+    - - PPM
+      - '-'
+    AMAX_LNB: &id004
+    - 0.0
+    - specific leaf nitrogen below which there is no photosynthesis
+    - - kg N ha-1
+    AMAX_SLP: &id005
+    - 3.24
+    - slope of relationship between maximum leaf photosynthesis rate and specific
+      leaf nitrogen
+    - - kg CO2 h-1 (kg N)-1
+  GenericC4:
+    CO2EFFTB:
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 1.0
+      - 1000.0
+      - 1.0
+      - 2000.0
+      - 1.0
+    - multiplication factor for EFF to account for an increasing CO2 concentration
+    - - PPM
+      - '-'
+    CO2TRATB:
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 0.74
+      - 1000.0
+      - 0.74
+      - 2000.0
+      - 0.74
+    - multiplication factor for maximum transpiration rate TRAMX to account for an
+      increasing CO2 concentration
+    - - PPM
+      - '-'
+    CO2AMAXTB:
+    - - 40.0
+      - 0.0
+      - 360.0
+      - 1.0
+      - 720.0
+      - 1.0
+      - 1000.0
+      - 1.0
+      - 2000.0
+      - 1.0
+    - multiplication factor for AMAX to account for an increasing CO2 concentration
+    - - PPM
+      - '-'
+  EcoTypes:
+    potato:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: &id006
+      - 3.0
+      - Lower threshold temperature for emergence
+      - - C
+      TEFFMX: &id007
+      - 18.0
+      - maximum effective temperature for emergence
+      - - C
+      TSUMEM: &id063
+      - 170
+      - temperature sum from sowing to emergence
+      - - C.d
+      IDSL: &id008
+      - 0
+      - indicates whether pre-anthesis development depends on temperature (=0), plus
+        daylength (=1) , plus vernalization (=2)
+      - - NA
+      DLO: &id009
+      - -99.0
+      - optimum daylength for development
+      - - hr
+      DLC: &id010
+      - -99.0
+      - critical daylength (lower threshold)
+      - - hr
+      TSUM1: &id011
+      - 150
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2:
+      - 1550
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: &id012
+      - - 0.0
+        - 0.0
+        - 2.0
+        - 0.0
+        - 13.0
+        - 11.0
+        - 30.0
+        - 28.0
+      - daily increase in temperature sum as function of daily average temperature
+      - - C
+        - C
+      DVSI: &id013
+      - 0.0
+      - Initial development stage
+      - - '-'
+      DVSEND: &id014
+      - 2.0
+      - development stage at harvest (= 2.0 at maturity)
+      - - '-'
+      VERNBASE: &id015
+      - 14.0
+      - Base vernalization requirement
+      - - d
+      VERNSAT: &id016
+      - 70.0
+      - Saturated vernalization requirement
+      - - d
+      VERNDVS: &id017
+      - 0.3
+      - Critical DVS for vernalization to switch off
+      - - '-'
+      VERNRTB: &id018
+      - - -8.0
+        - 0.0
+        - -4.0
+        - 0.0
+        - 3.0
+        - 1.0
+        - 10.0
+        - 1.0
+        - 17.0
+        - 0.0
+        - 20.0
+        - 0.0
+      - Temperature response function for vernalization
+      - - C
+        - '-'
+      TDWI: &id019
+      - 75.0
+      - initial total crop dry weight
+      - - kg.ha-1
+      RGRLAI: &id020
+      - 0.012
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: &id064
+      - - 0.0
+        - 0.003
+        - 1.1
+        - 0.003
+        - 2.0
+        - 0.0015
+      - specific leaf area as a function of DVS
+      - - '-'
+        - ha.kg-1
+      SPA: &id021
+      - 0.0
+      - specific pod area
+      - - ha.kg-1
+      SSATB: &id022
+      - - 0.0
+        - 0.0
+        - 2.0
+        - 0.0
+      - specific stem area as function of DVS
+      - - '-'
+        - ha.kg-1
+      SPAN: &id023
+      - 37.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: &id024
+      - 2.0
+      - lower threshold temperature for ageing of leaves
+      - - C
+      KDIFTB: &id025
+      - - 0.0
+        - 1.0
+        - 2.0
+        - 1.0
+      - extinction coefficient for diffuse visible light as function of DVS
+      - - '-'
+        - '-'
+      EFFTB: &id065
+      - - 0.0
+        - 0.45
+        - 40.0
+        - 0.45
+      - initial light-use efficiency single leaf as function of daily mean temperature
+      - - C
+        - kg.ha-1.hr-1.J-1.m2.s1
+      REFCO2L: &id066
+      - 360
+      - CO2 level at which AMAX and EFF were measured
+      - - PPM
+      TMPFTB: &id067
+      - - 0.0
+        - 0.01
+        - 3.0
+        - 0.01
+        - 10.0
+        - 0.75
+        - 15.0
+        - 1.0
+        - 20.0
+        - 1.0
+        - 26.0
+        - 0.75
+        - 33.0
+        - 0.01
+      - reduction factor of AMAX as function of average daily temperature
+      - - C
+        - '-'
+      TMNFTB: &id026
+      - - 0.0
+        - 0.0
+        - 3.0
+        - 1.0
+      - reduction factor of gross assimlation rate as function of low minimum temperature
+      - - C
+        - '-'
+      CVL: &id027
+      - 0.72
+      - efficiency of conversion into leaves
+      - - mass.mass-1
+      CVO: &id028
+      - 0.85
+      - efficiency of conversion into storage organs
+      - - mass.mass-1
+      CVR: &id029
+      - 0.72
+      - efficiency of conversion into roots
+      - - mass.mass-1
+      CVS: &id030
+      - 0.69
+      - efficiency of conversion into stems
+      - - mass.mass-1
+      Q10: &id031
+      - 2.0
+      - relative increase in respiration rate per 10 degrees Celsius temperature increase
+      - - '-'
+      RML: &id032
+      - 0.03
+      - relative maintenance respiration rate of leaves
+      - - d-1
+      RMO: &id033
+      - 0.0045
+      - relative maintenance respiration rate of storage organs
+      - - d-1
+      RMR: &id034
+      - 0.01
+      - relative maintenance respiration rate of roots
+      - - d-1
+      RMS: &id035
+      - 0.015
+      - relative maintenance respiration rate of stems
+      - - d-1
+      RFSETB: &id036
+      - - 0.0
+        - 1.0
+        - 2.0
+        - 1.0
+      - reduction factor for senescence as function of DVS
+      - - '-'
+        - '-'
+      FRTB: &id037
+      - - 0.0
+        - 0.2
+        - 1.0
+        - 0.2
+        - 1.36
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to roots as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FLTB: &id038
+      - - 0.0
+        - 0.8
+        - 1.0
+        - 0.8
+        - 1.27
+        - 0.0
+        - 1.36
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB: &id039
+      - - 0.0
+        - 0.2
+        - 1.0
+        - 0.2
+        - 1.27
+        - 0.25
+        - 1.36
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB: &id040
+      - - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.27
+        - 0.75
+        - 1.36
+        - 1.0
+        - 2.0
+        - 1.0
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: &id041
+      - 0.03
+      - maximum relative death rate of leaves due to water stress
+      - - '-'
+      RDRRTB: &id042
+      - - 0.0
+        - 0.0
+        - 1.5
+        - 0.0
+        - 1.51
+        - 0.02
+        - 2.0
+        - 0.02
+      - Relative death rate of roots as a function of DVS
+      - - '-'
+        - kg.kg-1.d-1
+      RDRSTB:
+      - &id043
+        - 0.0
+        - 0.0
+        - 2.0
+        - 0.0
+      CFET:
+      - 1.09
+      DEPNR: &id044
+      - 3.0
+      - crop group number for soil water depletion
+      - - '-'
+      IAIRDU: &id045
+      - 0
+      - air ducts in roots present (=1) or not (=0)
+      - - NA
+      IOX: &id046
+      - 0
+      - Oxygen stress effect enabled (=1) or not (=0)
+      - - NA
+      RDI:
+      - 15.0
+      RRI: &id047
+      - 1.2
+      - maximum daily increase in rooting depth
+      - - cm.d-1
+      RDMCR:
+      - 60
+      NMAXLV_TB: &id048
+      - - 0.0
+        - 0.06
+        - 0.4
+        - 0.05
+        - 0.7
+        - 0.045
+        - 1.0
+        - 0.045
+        - 2.0
+        - 0.04
+        - 2.1
+        - 0.04
+      - maximum N concentration in leaves as function of development stage in kg N
+        kg-1 dry biomass
+      - - '-'
+        - mass.mass-1
+      NMAXRT_FR: &id049
+      - 0.5
+      - maximum N concentration in roots as fraction of maximum N concentration in
+        leaves
+      - - '-'
+      NMAXST_FR: &id050
+      - 0.5
+      - maximum N concentration in stems as fraction of maximum N concentration in
+        leaves
+      - - '-'
+      NMAXSO: &id051
+      - 0.0136
+      - maximum N concentration in storage organs [kg N kg-1 dry biomass]
+      - - mass.mass-1
+      NRESIDLV: &id052
+      - 0.02
+      - residual N fraction in leaves [kg N kg-1 dry biomass]
+      - - mass.mass-1
+      NRESIDST: &id053
+      - 0.01
+      - residual N fraction in stems [kg N kg-1 dry biomass]
+      - - mass.mass-1
+      NRESIDRT: &id054
+      - 0.01
+      - residual N fraction in roots [kg N kg-1 dry biomass]
+      - - mass.mass-1
+      TCNT: &id055
+      - 10
+      - time coefficient for N translocation to storage organs
+      - - d
+      NFIX_FR: &id056
+      - 0.0
+      - fraction of crop nitrogen uptake by biological fixation
+      - - '-'
+      RNUPTAKEMAX: &id057
+      - 7.2
+      - Maximum rate of daily nitrogen uptake
+      - - kg.ha-1.d-1
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: &id058
+      - 33.0
+      - maximum leaf CO2 assimilation rate for young leaves at maximum nitrogen concentration,
+        reference CO2 level, and optimum temperature
+      - - '-'
+        - kg.ha-1.hr-1
+      DVS_N_TRANSL: &id059
+      - 0.8
+      - development stage above which N/P/K translocation to storage organs does occur
+      - - '-'
+      KN: &id060
+      - 0.4
+      - Extinction coefficient of leaf nitrogen concentration with canopy depth
+      - - m2 m-2
+      NSLLV_TB: &id061
+      - - 0.0
+        - 1.0
+        - 1.1
+        - 1.0
+        - 1.5
+        - 1.4
+        - 2.0
+        - 1.5
+        - 2.5
+        - 1.5
+      - Increament factor rate of leaf ageing due to N stress
+      - - '-'
+        - '-'
+      RGRLAI_MIN: &id062
+      - 0.004
+      - maximum relative increase in LAI under maximum nitrogen stress
+      - - ha.ha-1.d-1
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    potato_nl:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: &id068
+      - 255
+      - temperature sum from sowing to emergence
+      - - C.d
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1: *id011
+      TSUM2: &id069
+      - 2100
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI: *id020
+      SLATB: &id070
+      - - 0.0
+        - 0.0017
+        - 1.0
+        - 0.0024
+        - 2.0
+        - 0.0024
+      - specific leaf area as a function of DVS
+      - - '-'
+        - ha.kg-1
+      SPA: *id021
+      SSATB: *id022
+      SPAN: *id023
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: &id071
+      - - 0.0
+        - 0.49
+        - 40.0
+        - 0.49
+      - initial light-use efficiency single leaf as function of daily mean temperature
+      - - C
+        - kg.ha-1.hr-1.J-1.m2.s1
+      REFCO2L: &id072
+      - 400
+      - CO2 level at which AMAX and EFF were measured
+      - - PPM
+      TMPFTB: &id073
+      - - 0.0
+        - 0.01
+        - 3.0
+        - 0.01
+        - 10.0
+        - 0.75
+        - 15.0
+        - 1.0
+        - 24.0
+        - 1.0
+        - 29.0
+        - 0.75
+        - 36.0
+        - 0.01
+      - reduction factor of AMAX as function of average daily temperature
+      - - C
+        - '-'
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB: *id038
+      FSTB: *id039
+      FOTB: *id040
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO: *id051
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+  Varieties:
+    Potato_701:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id063
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 150
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2:
+      - 1550
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI: *id020
+      SLATB: *id064
+      SPA: *id021
+      SSATB: *id022
+      SPAN: *id023
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id065
+      REFCO2L: *id066
+      TMPFTB: *id067
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB: *id038
+      FSTB: *id039
+      FOTB: *id040
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO: *id051
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: 1992-01-01
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: The Potato 701 variety was calibrated for regions in northern
+          Europe in the framework of the MARS crop yield monitoring system. This includes
+          Germany, France, The Netherlands, Belgium, Luxembourg, United Kingdom, Ireland,
+          Denmark. Sowing date 15 April except United Kingdom with sowing date 25
+          April.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: NW-Europe
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: E.R. Boons-Prins, G.H.J. de Koning, CA. van Diepen, F.W.T. Penning
+          de Vries
+        Source: https://edepot.wur.nl/308997
+        Type: Report
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Potato_702:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id063
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 150
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2:
+      - 1675
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI: *id020
+      SLATB: *id064
+      SPA: *id021
+      SSATB: *id022
+      SPAN: *id023
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id065
+      REFCO2L: *id066
+      TMPFTB: *id067
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB: *id038
+      FSTB: *id039
+      FOTB: *id040
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO: *id051
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: 1992-01-01
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: The Potato 702 variety was calibrated for southern France with
+          sowing dates around 15 april.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Southern France
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: E.R. Boons-Prins, G.H.J. de Koning, CA. van Diepen, F.W.T. Penning
+          de Vries
+        Source: https://edepot.wur.nl/308997
+        Type: Report
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Potato_703:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id063
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 150
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2:
+      - 1800
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI: *id020
+      SLATB: *id064
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 40.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id065
+      REFCO2L: *id066
+      TMPFTB: *id067
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB: *id038
+      FSTB: *id039
+      FOTB: *id040
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO: *id051
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: 1992-01-01
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: The Potato 703 variety was calibrated for Central and N-Italy
+          with sowing dates around 15 april.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Central and N-Italy
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: E.R. Boons-Prins, G.H.J. de Koning, CA. van Diepen, F.W.T. Penning
+          de Vries
+        Source: https://edepot.wur.nl/308997
+        Type: Report
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Potato_704:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id063
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 200
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2:
+      - 1800
+      - temperature sum from anthesis to maturity
+      - - C.d
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI: *id020
+      SLATB: *id064
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 40.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id065
+      REFCO2L: *id066
+      TMPFTB: *id067
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB: *id038
+      FSTB: *id039
+      FOTB: *id040
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO: *id051
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: 1992-01-01
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: The Potato 704 variety was calibrated for Southern Italy, Greece,
+          Spain and Portugal with sowing dates ranging from 6 March (Greece), 15 april
+          (Italy) and 25 April (Spain, Portugal).
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Central and N-Italy
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: E.R. Boons-Prins, G.H.J. de Koning, CA. van Diepen, F.W.T. Penning
+          de Vries
+        Source: https://edepot.wur.nl/308997
+        Type: Report
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Innovator:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id068
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 187
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2: *id069
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI:
+      - 0.017
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: *id070
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 35.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id071
+      REFCO2L: *id072
+      TMPFTB: *id073
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB:
+      - - 0.0
+        - 0.74
+        - 0.5
+        - 0.74
+        - 0.6
+        - 0.74
+        - 0.7
+        - 0.74
+        - 0.8
+        - 0.74
+        - 0.9
+        - 0.71
+        - 0.95
+        - 0.67
+        - 1.0
+        - 0.56
+        - 1.1
+        - 0.18
+        - 1.15
+        - 0.07
+        - 1.2
+        - 0.03
+        - 1.3
+        - 0.0
+        - 1.4
+        - 0.0
+        - 1.5
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB:
+      - - 0.0
+        - 0.26
+        - 0.5
+        - 0.26
+        - 0.6
+        - 0.25
+        - 0.7
+        - 0.23
+        - 0.8
+        - 0.18
+        - 0.9
+        - 0.11
+        - 0.95
+        - 0.06
+        - 1.0
+        - 0.06
+        - 1.1
+        - 0.2
+        - 1.15
+        - 0.2
+        - 1.2
+        - 0.15
+        - 1.3
+        - 0.08
+        - 1.4
+        - 0.03
+        - 1.5
+        - 0.01
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB:
+      - - 0.0
+        - 0.0
+        - 0.5
+        - 0.0
+        - 0.6
+        - 0.01
+        - 0.7
+        - 0.03
+        - 0.8
+        - 0.08
+        - 0.9
+        - 0.18
+        - 0.95
+        - 0.27
+        - 1.0
+        - 0.38
+        - 1.1
+        - 0.62
+        - 1.15
+        - 0.73
+        - 1.2
+        - 0.82
+        - 1.3
+        - 0.92
+        - 1.4
+        - 0.97
+        - 1.5
+        - 0.99
+        - 2.0
+        - 1.0
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO:
+      - 0.0174
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: *id074
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: Innovator is a relatively early maturing variety that is popular
+          due to its frying and baking characteristics. It is currently growth in
+          most of Europe and is becoming popular in North America as well. Note that
+          in the paper from Ten Den et al. (2022) reallocation of stem and leaf biomass
+          was applied, which is not implemented in WOFOST 7.2. In practice between
+          0.5 to 1.0 ton of total dry stem and leaf biomass may be translocated towards
+          the tubers.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Europe and North America
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: Tamara ten Den, Pytrik Reidsma, Martin van Ittersum, Frits van
+          Everts
+        Source: https://doi.org/10.1016/j.eja.2022.126510
+        Type: Journal article
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Fontane:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id068
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 222
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2: *id069
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI:
+      - 0.018
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: *id070
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 32.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id071
+      REFCO2L: *id072
+      TMPFTB: *id073
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB:
+      - - 0.0
+        - 0.71
+        - 0.6
+        - 0.71
+        - 0.7
+        - 0.71
+        - 0.8
+        - 0.71
+        - 0.9
+        - 0.69
+        - 0.95
+        - 0.64
+        - 1.0
+        - 0.54
+        - 1.05
+        - 0.37
+        - 1.1
+        - 0.2
+        - 1.15
+        - 0.1
+        - 1.2
+        - 0.05
+        - 1.3
+        - 0.03
+        - 1.4
+        - 0.03
+        - 1.6
+        - 0.03
+        - 2.0
+        - 0.03
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB:
+      - - 0.0
+        - 0.29
+        - 0.6
+        - 0.29
+        - 0.7
+        - 0.28
+        - 0.8
+        - 0.25
+        - 0.9
+        - 0.19
+        - 0.95
+        - 0.15
+        - 1.0
+        - 0.13
+        - 1.05
+        - 0.14
+        - 1.1
+        - 0.16
+        - 1.15
+        - 0.14
+        - 1.2
+        - 0.1
+        - 1.3
+        - 0.04
+        - 1.4
+        - 0.01
+        - 1.6
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB:
+      - - 0.0
+        - 0.0
+        - 0.6
+        - 0.0
+        - 0.7
+        - 0.01
+        - 0.8
+        - 0.04
+        - 0.9
+        - 0.12
+        - 0.95
+        - 0.21
+        - 1.0
+        - 0.33
+        - 1.05
+        - 0.49
+        - 1.1
+        - 0.64
+        - 1.15
+        - 0.76
+        - 1.2
+        - 0.85
+        - 1.3
+        - 0.93
+        - 1.4
+        - 0.96
+        - 1.6
+        - 0.97
+        - 2.0
+        - 0.97
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO:
+      - 0.0137
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: *id074
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: Fontane is a intermediate maturing variety and is popular as
+          a ware potato for both processing and consumption. It is currently growth
+          in most of Europe but also in other places across the World. Note that in
+          the paper from Ten Den et al. (2022) reallocation of stem and leaf biomass
+          was applied, which is not implemented in WOFOST 7.2. In practice between
+          0.5 to 1.0 ton of total dry stem and leaf biomass may be translocated towards
+          the tubers.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Europe
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: Tamara ten Den, Pytrik Reidsma, Martin van Ittersum, Frits van
+          Everts
+        Source: https://doi.org/10.1016/j.eja.2022.126510
+        Type: Journal article
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Markies:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id068
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 257
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2: *id069
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI:
+      - 0.013
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: *id070
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 37.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id071
+      REFCO2L: *id072
+      TMPFTB: *id073
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB:
+      - - 0.0
+        - 0.7
+        - 0.2
+        - 0.7
+        - 0.4
+        - 0.7
+        - 0.6
+        - 0.7
+        - 0.8
+        - 0.7
+        - 0.9
+        - 0.68
+        - 0.95
+        - 0.63
+        - 1.0
+        - 0.54
+        - 1.1
+        - 0.19
+        - 1.15
+        - 0.09
+        - 1.2
+        - 0.05
+        - 1.3
+        - 0.03
+        - 1.5
+        - 0.03
+        - 1.7
+        - 0.03
+        - 2.0
+        - 0.03
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB:
+      - - 0.0
+        - 0.29
+        - 0.2
+        - 0.29
+        - 0.4
+        - 0.26
+        - 0.6
+        - 0.21
+        - 0.8
+        - 0.08
+        - 0.9
+        - 0.01
+        - 0.95
+        - 0.0
+        - 1.0
+        - 0.04
+        - 1.1
+        - 0.26
+        - 1.15
+        - 0.31
+        - 1.2
+        - 0.29
+        - 1.3
+        - 0.22
+        - 1.5
+        - 0.09
+        - 1.7
+        - 0.04
+        - 2.0
+        - 0.01
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB:
+      - - 0.0
+        - 0.01
+        - 0.2
+        - 0.01
+        - 0.4
+        - 0.04
+        - 0.6
+        - 0.09
+        - 0.8
+        - 0.22
+        - 0.9
+        - 0.31
+        - 0.95
+        - 0.37
+        - 1.0
+        - 0.42
+        - 1.1
+        - 0.55
+        - 1.15
+        - 0.6
+        - 1.2
+        - 0.66
+        - 1.3
+        - 0.75
+        - 1.5
+        - 0.88
+        - 1.7
+        - 0.93
+        - 2.0
+        - 0.96
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO:
+      - 0.0169
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: *id074
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: Markies is a late maturing variety and is popular as a ware potato
+          for both processing and consumption. It is currently growth in most of Europe
+          but also in other places across the World. Note that in the paper from Ten
+          Den et al. (2022) reallocation of stem and leaf biomass was applied, which
+          is not implemented in WOFOST 7.2. In practice between 0.5 to 1.0 ton of
+          total dry stem and leaf biomass may be translocated towards the tubers.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Europe
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: Tamara ten Den, Pytrik Reidsma, Martin van Ittersum, Frits van
+          Everts
+        Source: https://doi.org/10.1016/j.eja.2022.126510
+        Type: Journal article
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Premiere:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id068
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 164
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2: *id069
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI:
+      - 0.019
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: *id070
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 35.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id071
+      REFCO2L: *id072
+      TMPFTB: *id073
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB:
+      - - 0.0
+        - 0.83
+        - 0.7
+        - 0.83
+        - 0.8
+        - 0.83
+        - 0.85
+        - 0.82
+        - 0.9
+        - 0.8
+        - 0.95
+        - 0.75
+        - 1.0
+        - 0.62
+        - 1.05
+        - 0.42
+        - 1.1
+        - 0.21
+        - 1.15
+        - 0.08
+        - 1.2
+        - 0.03
+        - 1.25
+        - 0.01
+        - 1.3
+        - 0.0
+        - 1.4
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB:
+      - - 0.0
+        - 0.17
+        - 0.7
+        - 0.17
+        - 0.8
+        - 0.15
+        - 0.85
+        - 0.14
+        - 0.9
+        - 0.12
+        - 0.95
+        - 0.08
+        - 1.0
+        - 0.07
+        - 1.05
+        - 0.08
+        - 1.1
+        - 0.1
+        - 1.15
+        - 0.09
+        - 1.2
+        - 0.05
+        - 1.25
+        - 0.03
+        - 1.3
+        - 0.02
+        - 1.4
+        - 0.0
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB:
+      - - 0.0
+        - 0.0
+        - 0.7
+        - 0.0
+        - 0.8
+        - 0.02
+        - 0.85
+        - 0.04
+        - 0.9
+        - 0.08
+        - 0.95
+        - 0.17
+        - 1.0
+        - 0.31
+        - 1.05
+        - 0.5
+        - 1.1
+        - 0.69
+        - 1.15
+        - 0.83
+        - 1.2
+        - 0.92
+        - 1.25
+        - 0.96
+        - 1.3
+        - 0.98
+        - 1.4
+        - 1.0
+        - 2.0
+        - 1.0
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.23
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      # - 63
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO:
+      - 0.0142
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: *id074
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: Premiere is a very early maturing variety and is popular as a
+          potato for processing into fries. It is currently growth in most of Europe
+          but also in other places across the World. Note that in the paper from Ten
+          Den et al. (2022) reallocation of stem and leaf biomass was applied, which
+          is not implemented in WOFOST 7.2. In practice between 0.5 to 1.0 ton of
+          total dry stem and leaf biomass may be translocated towards the tubers.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Europe
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: Tamara ten Den, Pytrik Reidsma, Martin van Ittersum, Frits van
+          Everts
+        Source: https://doi.org/10.1016/j.eja.2022.126510
+        Type: Journal article
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
+    Festien:
+      CO2EFFTB: *id001
+      CO2TRATB: *id002
+      CO2AMAXTB: *id003
+      TBASEM: *id006
+      TEFFMX: *id007
+      TSUMEM: *id068
+      IDSL: *id008
+      DLO: *id009
+      DLC: *id010
+      TSUM1:
+      - 280
+      - temperature sum from emergence to anthesis
+      - - C.d
+      TSUM2: *id069
+      DTSMTB: *id012
+      DVSI: *id013
+      DVSEND: *id014
+      VERNBASE: *id015
+      VERNSAT: *id016
+      VERNDVS: *id017
+      VERNRTB: *id018
+      TDWI: *id019
+      RGRLAI:
+      - 0.015
+      - maximum relative increase in LAI
+      - - d-1
+      SLATB: *id070
+      SPA: *id021
+      SSATB: *id022
+      SPAN:
+      - 32.0
+      - life span of leaves growing at 35 Celsius
+      - - d
+      TBASE: *id024
+      KDIFTB: *id025
+      EFFTB: *id071
+      REFCO2L: *id072
+      TMPFTB: *id073
+      TMNFTB: *id026
+      CVL: *id027
+      CVO: *id028
+      CVR: *id029
+      CVS: *id030
+      Q10: *id031
+      RML: *id032
+      RMO: *id033
+      RMR: *id034
+      RMS: *id035
+      RFSETB: *id036
+      FRTB: *id037
+      FLTB:
+      - - 0.0
+        - 0.72
+        - 0.5
+        - 0.72
+        - 0.6
+        - 0.72
+        - 0.7
+        - 0.72
+        - 0.8
+        - 0.72
+        - 0.9
+        - 0.7
+        - 0.95
+        - 0.66
+        - 1.0
+        - 0.56
+        - 1.1
+        - 0.2
+        - 1.15
+        - 0.1
+        - 1.2
+        - 0.06
+        - 1.3
+        - 0.04
+        - 1.4
+        - 0.04
+        - 1.6
+        - 0.04
+        - 2.0
+        - 0.04
+      - fraction of total dry matter to leaves as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FSTB:
+      - - 0.0
+        - 0.28
+        - 0.5
+        - 0.27
+        - 0.6
+        - 0.25
+        - 0.7
+        - 0.22
+        - 0.8
+        - 0.17
+        - 0.9
+        - 0.08
+        - 0.95
+        - 0.04
+        - 1.0
+        - 0.05
+        - 1.1
+        - 0.23
+        - 1.15
+        - 0.24
+        - 1.2
+        - 0.2
+        - 1.3
+        - 0.11
+        - 1.4
+        - 0.06
+        - 1.6
+        - 0.01
+        - 2.0
+        - 0.0
+      - fraction of total dry matter to stems as a function of DVS
+      - - '-'
+        - mass.mass-1
+      FOTB:
+      - - 0.0
+        - 0.0
+        - 0.5
+        - 0.01
+        - 0.6
+        - 0.03
+        - 0.7
+        - 0.06
+        - 0.8
+        - 0.11
+        - 0.9
+        - 0.22
+        - 0.95
+        - 0.3
+        - 1.0
+        - 0.39
+        - 1.1
+        - 0.57
+        - 1.15
+        - 0.66
+        - 1.2
+        - 0.74
+        - 1.3
+        - 0.85
+        - 1.4
+        - 0.9
+        - 1.6
+        - 0.95
+        - 2.0
+        - 0.96
+      - fraction of total dry matter to storage organs as a function of DVS
+      - - '-'
+        - mass.mass-1
+      PERDL: *id041
+      RDRRTB: *id042
+      RDRSTB:
+      - *id043
+      CFET:
+      - 1.09
+      DEPNR: *id044
+      IAIRDU: *id045
+      IOX: *id046
+      RDI:
+      - 15.0
+      RRI: *id047
+      RDMCR:
+      - 60
+      NMAXLV_TB: *id048
+      NMAXRT_FR: *id049
+      NMAXST_FR: *id050
+      NMAXSO:
+      - 0.0126
+      NRESIDLV: *id052
+      NRESIDST: *id053
+      NRESIDRT: *id054
+      TCNT: *id055
+      NFIX_FR: *id056
+      RNUPTAKEMAX: *id057
+      Metadata:
+        Creator: Allard de Wit
+        Contact: allard.dewit@wur.nl
+        Publisher: Wageningen Environmental Research, Wageningen Plant Production
+          Systems
+        Title: Parameter sets for the WOFOST7.2/WOFOST8.0 model for simulating potato
+        Date: *id074
+        Language: EN
+        Format: YAML
+        Subject: WOFOST parameters for potato
+        Description: Festien is a very late maturing variety and is only used as a
+          starch potato for the processing industry. Note that in the paper from Ten
+          Den et al. (2022) reallocation of stem and leaf biomass was applied, which
+          is not implemented in WOFOST 7.2. In practice between 0.5 to 1.0 ton of
+          total dry stem and leaf biomass may be translocated towards the tubers.
+        Identifier: null
+        Relation: null
+        Coverage:
+          Region: Europe
+        Rights: European Union Public License (EUPL)
+        Keyword: potato; Solanum tuberosum
+        Contributor: Tamara ten Den, Pytrik Reidsma, Martin van Ittersum, Frits van
+          Everts
+        Source: https://doi.org/10.1016/j.eja.2022.126510
+        Type: Journal article
+      AMAX_LNB: *id004
+      AMAX_SLP: *id005
+      AMAX_REF: *id058
+      DVS_N_TRANSL: *id059
+      KN: *id060
+      NSLLV_TB: *id061
+      RGRLAI_MIN: *id062
+      REALLOC_EFFICIENCY:
+      - 0.95
+      REALLOC_DVS:
+      - 1.5
+      REALLOC_LEAF_FRACTION:
+      - 0.0
+      REALLOC_LEAF_RATE:
+      - 0.0
+      REALLOC_STEM_FRACTION:
+      - 0.0
+      REALLOC_STEM_RATE:
+      - 0.0
