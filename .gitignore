@@ -112,3 +112,6 @@ conf/
 wofost_run.py
 wur-logo.png
 _*
+
+gdd*
+data\wofost81\output\*
