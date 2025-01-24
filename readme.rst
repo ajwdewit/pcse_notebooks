@@ -13,7 +13,7 @@ The notebooks include introductory examples:
 - **03 Running LINTUL3** a similar example, but instead using the LINTUL3 model instead of WOFOST.
 - **04 Running PCSE in batch mode** demonstrates how to run PCSE simulation in batch for a series of crops and year
 - **13 Simulating grassland productivity with LINGRA** demonstrates the LINGRA model for simulating productivity of grasslands
-- **14 Build your own model with PCSE: demonstrates how developing models works in PCSE.
+- **14 Build your own model with PCSE**: demonstrates how developing models works in PCSE.
 
 Some more advanced features of PCSE are demonstrated in:
  
@@ -27,12 +27,12 @@ More advanced subjects are treated that require quite some background knowledge 
 - **08b Data assimilation with the EnKF multistate** demonstrates how to effectively load multiple states into the EnKF state vector.
 - **09 Optimizing parameters in a PCSE model** demonstrates how to do parameter optimizations in PCSE.
 - **10 Sensitivity analysis of WOFOST** demonstrates how to use SAlib for sensitivity analysis
-- **11 Optimizing partitioning parameters
+- **11 Optimizing partitioning parameters** demonstrates calibration of tabular parameters.
 
 Finally, some notebooks on the new WOFOST 8.1 with the advanced water and C/N balance:
 
-- **12 Simulating with WOFOST 8.1 SNOMIN demonstrates the WOFOST 8.1.
-- **15 Run WOFOST 8.1 SNOMIN with SoilGrids demonstrates how to derived soil parameters for SNOMIN from SoilGrids.
+- **12 Simulating with WOFOST 8.1 SNOMIN** demonstrates the WOFOST 8.1.
+- **15 Run WOFOST 8.1 SNOMIN with SoilGrids** demonstrates how to derived soil parameters for SNOMIN from SoilGrids.
 
 
 
