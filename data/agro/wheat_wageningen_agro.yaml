@@ -1,0 +1,67 @@
+Version: 1.0
+AgroManagement:
+- 2013-10-03:
+    CropCalendar:
+        crop_name: wheat
+        variety_name: Julius
+        crop_start_date: 2013-10-23
+        crop_start_type: sowing
+        crop_end_date: 2014-07-31
+        crop_end_type: harvest
+        max_duration: 400
+    TimedEvents:
+    -   event_signal: apply_n_snomin
+        name:  Timed N application table
+        comment: All fertilizer N amounts in kg/ha
+        events_table:
+        - 2014-02-24: 
+            {
+                amount: 54.,
+                application_depth: 10.,
+                cnratio: 0.,
+                f_orgmat: 0.00,
+                f_NH4N: 0.5,
+                f_NO3N: 0.5,
+                initial_age: 0.
+            }
+        - 2014-03-26: 
+            {
+                amount: 54.,
+                application_depth: 10.,
+                cnratio: 0.,
+                f_orgmat: 0.00,
+                f_NH4N: 0.5,
+                f_NO3N: 0.5,
+                initial_age: 0.
+            }
+        - 2014-04-16: 
+            {
+                amount: 40.,
+                application_depth: 10.,
+                cnratio: 0.,
+                f_orgmat: 0.00,
+                f_NH4N: 0.5,
+                f_NO3N: 0.5,
+                initial_age: 0.
+            }
+        - 2014-04-29: 
+            {
+                amount: 80.,
+                application_depth: 10.,
+                cnratio: 0.,
+                f_orgmat: 0.00,
+                f_NH4N: 0.5,
+                f_NO3N: 0.5,
+                initial_age: 0.
+            }
+        - 2014-05-22: 
+            {
+                amount: 40.,
+                application_depth: 10.,
+                cnratio: 0.,
+                f_orgmat: 0.00,
+                f_NH4N: 0.5,
+                f_NO3N: 0.5,
+                initial_age: 0.
+            }
+    StateEvents: null
